@@ -11,12 +11,14 @@
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run",
 		"format": "prettier --write .",
-		"lint": "prettier --check ."
+		"lint": "prettier --check .",
+		"deploy" : "npx gh-pages -d dist"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.2.5",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"gh-pages": "^6.2.0",
 		"prettier": "^3.3.2",
 		"prettier-plugin-svelte": "^3.2.5",
 		"svelte": "^4.2.7",
