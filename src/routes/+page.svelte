@@ -26,7 +26,7 @@
 		width: 100%;
 		left: 0%;
 		top: 0;
-		transition: all .3s ease;
+		transition: all .1s ease-out;
 	}
 
 	.blue {
