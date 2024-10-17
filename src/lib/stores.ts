@@ -59,3 +59,5 @@ export const ComputerPossibleActions = writable<Action[]>([]);
 // Store piece in combat in a reactive store
 export const red_piece_combat = writable<Piece | null>(null);
 export const blue_piece_combat = writable<Piece | null>(null);
+
+export const turn_count = writable<Number>(0);

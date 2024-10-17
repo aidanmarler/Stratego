@@ -101,7 +101,7 @@
 	function handlePieceSelected(piece: any) {
 		// Close the PieceSelect popup after a selection
 		// come back!!! - understand where it comes from and what it is:
-		console.log('handlePieceSelected', piece);
+		//console.log('handlePieceSelected', piece);
 		createPlayerPiece(piece.detail);
 		//showPieceSelect = false;
 		//electedSpaceId = null; // Reset the selected space after piece selection
@@ -196,6 +196,7 @@
 	}
 
 	function boardLeave(event: any) {
+		return
 		//console.log(event);
 		showPieceSelect = false;
 		selectedSpacePos.set(null);
@@ -207,7 +208,7 @@
 		});
 	}
 
-	function spaceClicked(space: any) {
+	async function spaceClicked(space: any) {
 		if ($game_state == 1) {
 			SelectPiece(space.pos);
 		} else if ($game_state == 2) {
@@ -216,13 +217,12 @@
 				// Move the piece to the selected space
 				if ($action_investigation.moving_piece != null) {
 					movePiece($action_investigation.moving_piece, space.pos);
+					await new Promise((resolve) => setTimeout(resolve, 50));
 					game_state.set(3);
 				} else {
 					throw new Error();
 				}
 			}
-		} else if ($game_state == 3) {
-			game_state.set(2);
 		}
 	}
 </script>

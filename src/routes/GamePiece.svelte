@@ -6,7 +6,8 @@
 		game_state,
 		action_investigation,
 		ComputerPossibleActions,
-		red_piece_combat
+		red_piece_combat,
+		turn_count
 	} from '../lib/stores';
 	import { AttackPiece } from '$lib/piece_actions';
 	import type { Piece, Action } from '../lib/types';
@@ -56,11 +57,10 @@
 		function check_space(space: number, direction: number) {
 			// Stop if the space is invalid (out of bounds, non-empty, or a water tile)
 			if ($board_state[space] !== null) {
-				const enemy = piece.player ? !piece.player : piece.player;
 				if ($board_state[space].player == !piece.player) {
 					possible_attacks.push(space);
 					if (!piece.player) {
-						console.log('pushing attack:', $board_state[space]);
+						//console.log('pushing attack:', $board_state[space]);
 						ComputerPossibleActions.update((currentActions) => {
 							const updatedActions = [...currentActions]; // Make a copy of the array
 							const newAction: Action = { piece: piece, type: 1, aimed_pos: space }; // error defining action type
@@ -83,7 +83,7 @@
 			possible_movements.push(space);
 			// Add the valid space to possible movements
 			if (!piece.player) {
-				console.log('pushing movement:', $board_state[space]);
+				//console.log('pushing movement:', $board_state[space]);
 				ComputerPossibleActions.update((currentActions) => {
 					const updatedActions = [...currentActions]; // Make a copy of the array
 					const newAction: Action = { piece: piece, type: 0, aimed_pos: space }; // error defining action type
@@ -130,19 +130,21 @@
 	}
 
 	// Calculate if interactable and spaces that can be moved to
-	function NewTurn(turn: number) {
+	function NewTurn(state: number) {
+		console.log('new turn', state, $turn_count);
+
 		possible_movements = [];
 		possible_attacks = [];
 		if (piece.type == 'bomb' || piece.type == 'flag') {
 			return;
 		}
 		// look forwards, backwards, left, then right
-		if (turn === 2) {
+		if (state === 2) {
 			if (!piece.player) {
 				return;
 			}
 			SearchForPossibleMoves(piece.pos, piece.type);
-		} else if (turn === 3) {
+		} else if (state === 3) {
 			if (piece.player) {
 				return;
 			}
@@ -151,9 +153,11 @@
 	}
 
 	// Reactive statement to watch when game_state changes to 2
-	$: if ($game_state === 2 || 3) {
-		NewTurn($game_state);
-	} 
+	$: if ($game_state == 2) {
+		NewTurn(2);
+	} else if ($game_state == 3) {
+		NewTurn(3);
+	}
 
 	$: if ($red_piece_combat == piece) {
 		updateContents(false);
