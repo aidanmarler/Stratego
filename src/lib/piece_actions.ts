@@ -376,8 +376,8 @@ async function ComputersTurn(random: boolean) {
 	console.log(ChosenAction);
 	//  (2)  Choose a move or an attack
 	if (ChosenAction.type === 0) {
-		movePiece(ChosenAction.piece, ChosenAction.aimed_pos);
-		await wait(1500);
+		await movePiece(ChosenAction.piece, ChosenAction.aimed_pos);
+		await wait(0);
 		game_state.set(2);
 	} else if (ChosenAction.type === 1) {
 		const targetPiece = CurrentBoardState[ChosenAction.aimed_pos];
