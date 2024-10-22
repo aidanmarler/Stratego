@@ -196,7 +196,7 @@
 	}
 
 	function boardLeave(event: any) {
-		return
+		return;
 		//console.log(event);
 		showPieceSelect = false;
 		selectedSpacePos.set(null);
@@ -216,8 +216,8 @@
 			if ($action_investigation.spaces.includes(space.pos)) {
 				// Move the piece to the selected space
 				if ($action_investigation.moving_piece != null) {
-					movePiece($action_investigation.moving_piece, space.pos);
-					await new Promise((resolve) => setTimeout(resolve, 50));
+					await movePiece($action_investigation.moving_piece, space.pos);
+					await new Promise((resolve) => setTimeout(resolve, 1000));
 					game_state.set(3);
 				} else {
 					throw new Error();
@@ -285,24 +285,53 @@
 	.grid {
 		display: grid;
 		position: absolute;
-		gap: 0.2vh;
 		z-index: 0;
 		background-color: hsl(0, 0%, 70%);
 		border-style: solid;
-		border-width: 0.5vh;
 		border-color: hsl(0, 0%, 70%);
-		padding: 1vh;
-		width: 80vh;
-		height: 80vh;
 		grid-template-columns: repeat(10, 1fr); /* 10 equal-width columns */
 		grid-template-rows: repeat(10, 1fr);
-		border-radius: 0vh;
+		transition: all 0.2s ease; /* Smooth transition for the entire board */
+
 		transform: translate(0%, -50%);
-		left: 14vh;
+		left: 10vh;
 		top: 50%;
+		width: 87vh;
+		height: 87vh;
+		gap: 0.2vh;
+		padding: 1vh;
+		border-width: 0.5vh;
 		box-shadow: 0.8vh 0.8vh 0vh 0vh rgb(0, 0, 0);
-		transition: all 0.3s ease; /* Smooth transition for the entire board */
 	}
+
+	/* Small screens or mobile (portrait mode) */
+	@media (orientation: portrait) {
+		.grid {
+			transform: translate(-50%, -50%);
+			left: 50% !important;
+			width: 88vw;
+			height: 88vw;
+			gap: 0.2vw;
+			padding: 1vw;
+			border-width: 0.5vw;
+			box-shadow: 0.8vw 0.8vw 0 0 rgb(0, 0, 0);
+		}
+	}
+
+	/* Not-Wide Screens */
+	@media (max-aspect-ratio: 3/2) {
+		.grid {
+			left: 4vh;
+		}
+	}
+
+	/*
+	@media (min-aspect-ratio: 9/2) {
+		.grid {
+			right: calc(50%);
+			left: auto;
+		}
+	}*/
 
 	:global(.grid-land) {
 		background-color: hsl(135, 18%, 22%);
@@ -375,4 +404,6 @@
 		transform: translate(-0.6vh, -0.6vh); /* Maintain popped position */
 		cursor: pointer;
 	}
+
+	/* Tall screens or vertical layout */
 </style>

@@ -1,0 +1,121 @@
+.left-tower {
+	position: absolute;
+	left: 0;
+	width: 0.9vh;
+	height: 0.9vh;
+	top: -0.9vh;
+	background-color: inherit;
+	box-shadow: 0vh 0.2vh 0 0.15vh rgb(0, 0, 0);
+	z-index: 9;
+}
+
+.right-tower {
+	position: absolute;
+	right: 0;
+	width: 0.9vh;
+	height: 0.9vh;
+	top: -0.9vh;
+	box-shadow: 0vh 0.2vh 0 0.15vh rgb(0, 0, 0);
+	background-color: inherit;
+}
+
+.left-brick {
+	position: absolute;
+	right: calc(50% - 1vh);
+	width: 3vh;
+	height: 0.3vh;
+	top: -0.3vh;
+	background-color: inherit;
+	box-shadow: 0vh 0.15vh 0 0.1vh rgb(0, 0, 0);
+	z-index: 8;
+}
+
+.right-brick {
+	position: absolute;
+	right: calc(50% - 0.5vh);
+	width: 1vh;
+	height: 0.3vh;
+	top: -0.6vh;
+	background-color: inherit;
+	box-shadow: 0vh 0.15vh 0 0.1vh rgb(0, 0, 0);
+	z-index: 0;
+}
+
+.left-roof {
+	width: 0;
+	height: 0;
+}
+
+.small_contents {
+	font-size: 1.3vh;
+}
+
+.blue.interactable:hover {
+	cursor: pointer;
+}
+
+.blue.investigating {
+	transform: translate(-50%, calc(-50% - 0.8vh));
+	box-shadow:
+		0 0.5vh 0 0.2vh rgb(0, 0, 0),
+		0 1.1vh 0 0.7vh rgba(0, 0, 0, 0.2);
+	background-color: hsl(232, 100%, 95%) !important;
+}
+
+.attackable {
+	transform: translate(calc(-50% - 0.05vh), calc(-50% - 0.3vh));
+	cursor: pointer;
+}
+
+.attackable:hover {
+	transform: translate(calc(-50% - 0.3vh), calc(-50% - 0.8vh));
+	box-shadow:
+		0vh 0.5vh 0 0.2vh rgb(0, 0, 0),
+		0vh 1vh 0 0.5vh rgba(0, 0, 0, 0.2);
+}
+
+.blue.stationary {
+	background-color: hsl(232, 50%, 50%);
+	color: hsl(0, 0%, 100%);
+}
+
+.blue.mobile {
+	background-color: hsl(232, 100%, 80%);
+	color: hsl(0, 0%, 0%);
+}
+
+.red {
+	background-color: hsl(0, 50%, 50%);
+	color: hsla(0, 0%, 0%, 0);
+}
+
+.red.attackable:hover {
+	background-color: hsl(0, 50%, 70%) !important;
+	color: hsla(0, 0%, 0%, 1);
+}
+
+.show_piece {
+	/* Show the red piece for a combat animation */
+	transition: all 0.3s ease-in;
+	rotate: y 360deg;
+	transform: translate(-50%, calc(-50% - 0.8vh));
+	box-shadow:
+		0.1vh 0.5vh 0 0.2vh rgb(0, 0, 0) /*basic shadow*/,
+		0.2vh 1.1vh 0 0.7vh rgba(0, 0, 0, 0.2); /* Larger Shadow becasue in air */
+}
+
+.show_piece_bomb {
+	/* What does a flag look like in a combat animation */
+	color: rgb(255, 255, 255);
+	background-color: hsl(0, 100%, 20%) !important;
+}
+.show_piece_flag {
+	/* when found, the flag should rise up, glow, and have rays come from it */
+	color: rgb(255, 255, 255);
+	background-color: hsl(0, 100%, 20%) !important;
+}
+.show_piece_mobile {
+	/* What does a mobile troop look like in a combat animation */
+	color: hsla(0, 0%, 0%, 1);
+	background-color: hsl(0, 80%, 50%) !important;
+}

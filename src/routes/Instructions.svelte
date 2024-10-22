@@ -96,6 +96,7 @@
 			{main_contents}
 		</div>
 	</div>
+	<div class="graveyard"></div>
 </div>
 
 <style>
@@ -105,26 +106,37 @@
 		border-color: hsl(0, 0%, 70%);
 		height: 83vh;
 		transform: translate(0%, -50%);
-		right: 10vh;
-		left: calc(14vh + 80vh + 12vh);
+		right: 12vh;
+		left: calc(16vh + 80vh + 6vh);
 		top: 50%;
 		background-color: rgba(0, 255, 255, 0);
 	}
 
 	.box {
-		height: 30vh;
+		height: 44vh;
 		position: absolute;
 		font-family: 'Courier New', Courier, monospace;
 		text-align: left;
 		right: 0;
 		left: 0;
-		top: 3vh;
+		top: 0vh;
 		padding: 5vh;
-		background-color: hsl(0, 0%, 80%);
+		background-color: hsl(0, 0%, 70%);
 		box-shadow: 0.8vh 0.8vh hsl(0, 0%, 0%);
-		border-style: solid;
-		border-width: 0.5vh;
-		border-color: hsl(0, 0%, 80%);
+		color: hsl(0, 0%, 0%);
+	}
+
+	.graveyard {
+		height: 16vh;
+		position: absolute;
+		font-family: 'Courier New', Courier, monospace;
+		text-align: left;
+		right: 0;
+		left: 0;
+		bottom: 0vh;
+		padding: 5vh;
+		background-color: hsl(0, 0%, 70%);
+		box-shadow: 0.8vh 0.8vh hsl(0, 0%, 0%);
 		color: hsl(0, 0%, 0%);
 	}
 
