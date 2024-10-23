@@ -109,17 +109,17 @@
 	/* Small screens or mobile (portrait mode) */
 	@media (orientation: portrait) {
 		.pop_up {
-			width: 4vw;
 			left: 3.9vw;
 			bottom: 1vw;
-			width: 10vw;
+			width: 15vw;
 		}
 
 		.grid-item {
-			padding: 0.5vw;
+			padding: 1vw;
 			margin: 0.4vw;
-			font-size: 1.5vw;
-			box-shadow: 0.3vw 0.3vw rgba(0, 0, 0, 1);
+			font-size: 2.2vw;
+			font-weight: 1000;
+			box-shadow: 0.5vw 0.5vw rgba(0, 0, 0, 1);
 		}
 	}
 </style>

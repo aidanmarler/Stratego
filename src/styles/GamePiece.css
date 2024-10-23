@@ -1,3 +1,4 @@
+/*
 .left-tower {
 	position: absolute;
 	left: 0;
@@ -44,7 +45,7 @@
 .left-roof {
 	width: 0;
 	height: 0;
-}
+}*/
 
 .small_contents {
 	font-size: 1.3vh;
@@ -118,4 +119,8 @@
 	/* What does a mobile troop look like in a combat animation */
 	color: hsla(0, 0%, 0%, 1);
 	background-color: hsl(0, 80%, 50%) !important;
+}
+
+/* Small screens or mobile (portrait mode) */
+@media (orientation: portrait) {
 }

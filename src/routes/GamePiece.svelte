@@ -242,12 +242,12 @@
 	<div class="computer_swords">
 		{piece_contents[2]}
 	</div>
-	<div class="left-tower" />
+	<!--<div class="left-tower" />
 	<div class="right-tower" />
 	<div class="left-brick" />
 	<div class="right-brick" />
 	<div class="left-roof" />
-	<div class="right-roof" />
+	<div class="right-roof" />-->
 </div>
 
 <style>
@@ -275,22 +275,28 @@
 		box-shadow: 0vh 0.5vh 0 0.2vh rgb(0, 0, 0);
 	}
 
+	.stationary {
+		font-size: 4vh;
+	}
+
 	/* Small screens or mobile (portrait mode) */
 	@media (orientation: portrait) {
+
 		.game-piece {
-			width: 4vw;
-			height: 5.5vw;
-			left: 4vw;
+			width: 7vw;
+			height: 7vw;
+			left: 4.3vw;
 			top: 4vw;
-			font-size: 3vw;
-			box-shadow: 0vw 0.5vw 0 0.2vw rgb(0, 0, 0);
+			font-size: 3.5vw;
+			box-shadow: 0vw 0.6vw 0 0.3vw rgb(0, 0, 0);
+		}
+
+		.small_contents {
+			font-size: 2vw;
 		}
 	}
 
 	/* Not-Wide Screens */
 	@media (max-aspect-ratio: 3/2) {
-		.game-piece {
-			left: 4vh;
-		}
 	}
 </style>

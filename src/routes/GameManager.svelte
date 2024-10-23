@@ -307,14 +307,32 @@
 	/* Small screens or mobile (portrait mode) */
 	@media (orientation: portrait) {
 		.grid {
-			transform: translate(-50%, -50%);
-			left: 50% !important;
-			width: 88vw;
-			height: 88vw;
-			gap: 0.2vw;
-			padding: 1vw;
-			border-width: 0.5vw;
-			box-shadow: 0.8vw 0.8vw 0 0 rgb(0, 0, 0);
+			transform: translate(-50%, 0%);
+			left: calc(50% - 0.5vw) !important;
+			width: 90vw;
+			height: 90vw;
+			top: auto;
+			bottom: 8vh;
+			gap: 0.5vw;
+			padding: 2vw;
+			border-width: 0vw;
+			box-shadow: 1.5vw 1.5vw 0 0 rgb(0, 0, 0);
+		}
+
+		:global(.grid-water) {
+			box-shadow: -0.7vw -0.7vw 0vh 0.7vw hsl(221, 54%, 0%); /* Shadow moves downward */
+			transform: translate(0.7vw, 0.7vw) scale(0.93);
+			z-index: 0.5;
+		}
+
+		.selected,
+		.selected:hover,
+		.selectable:hover {
+			background-color: hsl(135, 38%, 50%);
+			box-shadow:
+				0.2vw 0.2vw 0vh 0.1vw rgba(0, 0, 0, 1),
+				0vh 0vh 0vh 0vh rgba(0, 0, 0, 1); /* Same as hover */
+			transform: translate(-0.3vw, -0.3vw); /* Maintain popped position */
 		}
 	}
 
@@ -336,7 +354,7 @@
 	:global(.grid-land) {
 		background-color: hsl(135, 18%, 22%);
 		border-radius: 0vh;
-		padding: 0.6vh;
+		padding: 0vh;
 		box-shadow: 0vh 0vh rgba(0, 0, 0, 1);
 		transition: all 0.1s;
 		z-index: 0.5;
